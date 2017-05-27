@@ -11,9 +11,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Notice extends Model
+class BaseInfo extends Model
 {
-    protected $table = 'web_notice';
+    protected $table = 'base_info';
 
     public function lists($page= 1,$page_num= 5)
     {

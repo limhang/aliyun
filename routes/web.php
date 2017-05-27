@@ -22,5 +22,5 @@ $app->get('faa', function () {
 //公共路由
 $app->group(['namespace' => 'v1_0\Common', 'prefix' => 'v1_0/common'], function($app){
     //公告通知 有关路由
-    $app->get('notice/lists',['as'=>'notice.lists','uses'=>'NoticeController@lists']);
+    $app->get('baseInfo/lists',['as'=>'baseInfo.lists','uses'=>'BaseInfoController@lists']);
 });

@@ -5,16 +5,16 @@
 namespace App\Http\Controllers\v1_0\Common;
 
 use App\Http\Controllers\Controller;
-use App\Models\Notice;
+use App\Models\BaseInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
-class NoticeController extends Controller
+class BaseInfoController extends Controller
 {
-    protected $notice;
-    public function __construct(Notice $notice)
+    protected $baseInfo;
+    public function __construct(BaseInfo $baseInfo)
     {
-        $this->notice = $notice;
+        $this->baseInfo = $baseInfo;
     }
 
     /**
@@ -25,7 +25,7 @@ class NoticeController extends Controller
     {
         $page = $request->input('page',1);
         $page_num = $request->input('page_num',5);
-        $datas = $this->notice->lists($page,$page_num);
+        $datas = $this->baseInfo->lists($page,$page_num);
         return $this->apiResponse($datas);
     }
 }
