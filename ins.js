@@ -33,8 +33,10 @@ page.open('https:/instagram.com/accounts/login/', function() {
 	 });
 	
 	 // fill in data and press login
+	 console.log(document.getElementsByTagName(username).textcontent);
 	 page.sendEvent('click',ig.user.x, ig.user.y);
 	 page.sendEvent('keypress', 'xiaozuo0_0');
+	 console.log(document.getElementsByTagName(username).textcontent);
 
 	 page.sendEvent('click',ig.pass.x, ig.pass.y);
 	 page.sendEvent('keypress', '121308');
