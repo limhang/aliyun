@@ -22,9 +22,10 @@ page.open('https://www.instagram.com/accounts/login/', function() {
 			if (!name) {
 				var login = document.getElementsByClassName('_ah57t _84y62 _i46jh _rmr7s');
 			//	return getCoords(login.getBoundingClientRect());
-				  console.log(login[0].outerHTML);
+	//			  console.log(login[0].outerHTML);
 			} else {
 				var input = document.getElementsByTagName(type);
+				console.log(input[1].outputHTML);
 				for(var i = 0; i < input.length; i++) {
 					if(name && input[i].name == name)  return getCoords(input[i].getBoundingClientRect());
 					else if(!name && input[i].className)	return getCoords(input[i].getBoundingClientRect()); // this is for login button
