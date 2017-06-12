@@ -15,12 +15,12 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('faa', function () {
-	    return 'Hello World';
-});
+//用户有关路由
+$app->group(['namespace' => 'v1_0\Person', 'prefix' => 'v1_0/person'], function($app){
 
-//公共路由
-$app->group(['namespace' => 'v1_0\Common', 'prefix' => 'v1_0/common'], function($app){
-    //公告通知 有关路由
-    $app->get('baseInfo/lists',['as'=>'baseInfo.lists','uses'=>'BaseInfoController@lists']);
+    //用户注册
+    $app->post('user/register',['as'=>'user.register','uses'=>'UserController@register']);
+
+    $app->post('user/login',['as'=>'user.login','uses'=>'UserController@login']);
+
 });
