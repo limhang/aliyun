@@ -25,10 +25,12 @@ $app->group(['namespace' => 'v1_0\Person', 'prefix' => 'v1_0/person'], function(
 
 });
 
-//time模块有关路由
+//url模块有关路由
 $app->group(['namespace' => 'v1_0\Url', 'prefix' => 'v1_0/url'], function($app){
-	//添加时间管理项
+	//添加url
 	$app->post('user/urlcreate',['as'=>'user.urlcreate','uses'=>'UrlManagerController@urlcreate']);
-	//查询用户某天时间所有项
-	$app->post('user/urlquery',['as'=>'user.urlquery','uses'=>'UrlManagerController@urlquery']);
+	//查询url描述的关键字
+	$app->post('user/urlquerykd',['as'=>'user.urlquerykd','uses'=>'UrlManagerController@urlquerykd']);
+    //分页查询url内容
+    $app->post('user/urlquerypage',['as'=>'user.urlquerypage','uses'=>'UrlManagerController@urlquerypage']);
 });

@@ -10,7 +10,7 @@ class Manager extends Model
 	public $timestamps = false;
     protected $fillable = ['detail','category','tag','url','userId'];
 
-	public function urlquery($userId,$keyword)
+	public function urlquerykd($userId,$keyword)
 	{
 		$data = $this->where('userId',$userId)
 		->where('detail',$keyword)
@@ -18,4 +18,14 @@ class Manager extends Model
 		$res['lists'] = $data;
 		return $res;
 	}
+
+    public function urlquerypage($userId,$page)
+    {
+        $data = $this->where('userId',$userId)
+            ->orderBy('id','desc')
+            ->take($page)
+            ->get();
+        $res['lists'] = $data;
+        return $res;
+    }
 }

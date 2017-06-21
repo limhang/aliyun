@@ -37,13 +37,22 @@ class UrlManagerController extends AuthController
         return $this->apiResponse($res);
     }
 
-	public function urlquery(Request $request)
+	public function urlquerykd(Request $request)
 	{
 		$user_info = $this->user_info;
 		$userId = $user_info->userId;
 		$keyword = $request->input('keyword','0');
-		$res = $this->manager->urlquery($userId,$keyword);
+		$res = $this->manager->urlquerykd($userId,$keyword);
 		return $this->apiResponse($res);
 	}
+
+    public function urlquerypage(Request $request)
+    {
+        $user_info = $this->user_info;
+        $userId = $user_info->userId;
+        $page = $request->input('page','1');
+        $res = $this->manager->urlquerypage($userId,$page);
+        return $this->apiResponse($res);
+    }
 
 }
