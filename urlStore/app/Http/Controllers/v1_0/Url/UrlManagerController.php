@@ -33,6 +33,8 @@ class UrlManagerController extends AuthController
         $data = $request->all();
         $data['userId'] = $userId;
 		unset($data['token']);
+		$key = md5($data['userId'].$data['url']);
+		$data['key'] = $key;
         $res = $this->manager->create($data);
         return $this->apiResponse($res);
     }
@@ -67,7 +69,8 @@ class UrlManagerController extends AuthController
         $user_info = $this->user_info;
         $userId = $user_info->userId;
         $page = $request->input('page','1');
-        $res = $this->manager->urlquerypage($userId,$page);
+		$pagenum = $request->input('pagenum','5');
+        $res = $this->manager->urlquerypage($userId,$page,$pagenum);
         return $this->apiResponse($res);
     }
 
