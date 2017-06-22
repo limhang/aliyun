@@ -28,4 +28,18 @@ class Manager extends Model
         $res['lists'] = $data;
         return $res;
     }
+
+    public function urlupdate($data)
+    {
+        $url = $data['url'];
+        $userId = $data[$userId];
+        $tag = ($data['tag']) ? $data['tag'] : null;
+        $detail = ($data['detail']) ? $data['detail'] : null;
+        $category = ($data['category']) ? $data['category'] : null;
+        $this->where('userId',$userId)
+            ->where('url',$url)
+            ->update(['tag'=>$tag, 'detail'=>$detail, 'category'=>$category]);
+        $res['lists'] = null;
+        return $res;
+    }
 }

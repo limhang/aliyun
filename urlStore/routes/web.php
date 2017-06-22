@@ -19,18 +19,20 @@ $app->get('/', function () use ($app) {
 $app->group(['namespace' => 'v1_0\Person', 'prefix' => 'v1_0/person'], function($app){
 
     //用户注册
-    $app->post('user/register',['as'=>'user.register','uses'=>'UserController@register']);
+    $app->get('user/register',['as'=>'user.register','uses'=>'UserController@register']);
 
-    $app->post('user/login',['as'=>'user.login','uses'=>'UserController@login']);
+    $app->get('user/login',['as'=>'user.login','uses'=>'UserController@login']);
 
 });
 
 //url模块有关路由
 $app->group(['namespace' => 'v1_0\Url', 'prefix' => 'v1_0/url'], function($app){
 	//添加url
-	$app->post('user/urlcreate',['as'=>'user.urlcreate','uses'=>'UrlManagerController@urlcreate']);
-	//查询url描述的关键字
-	$app->post('user/urlquerykd',['as'=>'user.urlquerykd','uses'=>'UrlManagerController@urlquerykd']);
+	$app->get('user/urlcreate',['as'=>'user.urlcreate','uses'=>'UrlManagerController@urlcreate']);
+	//更新url内容
+    $app->get('user/urlupdate',['as'=>'user.urlupdate','uses'=>'UrlManagerController@urlupdate']);
+    //查询url描述的关键字
+	$app->get('user/urlquerykd',['as'=>'user.urlquerykd','uses'=>'UrlManagerController@urlquerykd']);
     //分页查询url内容
-    $app->post('user/urlquerypage',['as'=>'user.urlquerypage','uses'=>'UrlManagerController@urlquerypage']);
+    $app->get('user/urlquerypage',['as'=>'user.urlquerypage','uses'=>'UrlManagerController@urlquerypage']);
 });

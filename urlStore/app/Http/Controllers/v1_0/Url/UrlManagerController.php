@@ -37,6 +37,22 @@ class UrlManagerController extends AuthController
         return $this->apiResponse($res);
     }
 
+    /**
+     * 更新模式
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function urlupdate(Request $request)
+    {
+        $user_info = $this->user_info;
+        $userId = $user_info->userId;
+        $data = $request->all();
+        $data['userId'] = $userId;
+        unset($data['token']);
+        $res = $this->manager->urlupdate($data);
+        return $this->apiResponse($res);
+    }
+
 	public function urlquerykd(Request $request)
 	{
 		$user_info = $this->user_info;
