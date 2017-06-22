@@ -31,6 +31,8 @@ $app->group(['namespace' => 'v1_0\Url', 'prefix' => 'v1_0/url'], function($app){
 	$app->get('user/urlcreate',['as'=>'user.urlcreate','uses'=>'UrlManagerController@urlcreate']);
 	//更新url内容
     $app->get('user/urlupdate',['as'=>'user.urlupdate','uses'=>'UrlManagerController@urlupdate']);
+    //删除url数据
+    $app->get('user/urldelete',['as'=>'user.urldelete','uses'=>'UrlManagerController@urldelete']);
     //查询url描述的关键字
 	$app->get('user/urlquerykd',['as'=>'user.urlquerykd','uses'=>'UrlManagerController@urlquerykd']);
     //分页查询url内容

@@ -47,6 +47,7 @@ class Manager extends Model
         return $res;
     }
 
+    //更新指定数据
     public function urlupdate($data)
     {
         $url = $data['url'];
@@ -60,6 +61,16 @@ class Manager extends Model
         //    ->where('url',$url)
             ->update(['url'=>$url, 'tag'=>$tag, 'detail'=>$detail, 'category'=>$category, 'key'=>$rekey]);
         $res['lists'] = null;
+        return $res;
+    }
+
+    //删除指定数据
+    public function urldelete($data)
+    {
+        $key = $data['key'];
+        $this->where('key',$key)
+            ->delete();
+        $res['delete'] = null;
         return $res;
     }
 }
