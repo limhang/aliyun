@@ -90,4 +90,18 @@ class UrlManagerController extends AuthController
         return $this->apiResponse($res);
     }
 
+    /**
+     * 按照category模式查询数据
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function urlquerycategory(Request $request)
+    {
+        $user_info = $this->user_info;
+        $userId = $user_info->userId;
+        $category = $request->input('category','');
+        $res = $this->manager->urlquerycategory($userId,$category);
+        return $this->apiResponse($res);
+    }
+
 }

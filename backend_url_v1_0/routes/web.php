@@ -37,4 +37,6 @@ $app->group(['namespace' => 'v1_0\Url', 'prefix' => 'v1_0/url'], function($app){
 	$app->get('user/urlquerykd',['as'=>'user.urlquerykd','uses'=>'UrlManagerController@urlquerykd']);
     //分页查询url内容
     $app->get('user/urlquerypage',['as'=>'user.urlquerypage','uses'=>'UrlManagerController@urlquerypage']);
+    //查询category内容
+    $app->get('user/urlquerycategory',['as'=>'user.urlquerycategory','uses'=>'UrlManagerController@urlquerycategory']);
 });

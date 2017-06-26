@@ -19,6 +19,17 @@ class Manager extends Model
 		return $res;
 	}
 
+    //按照category来查找内容
+    public function urlquerycategory($userId,$category)
+    {
+        $data = $this->where('userId',$userId)
+            ->where('category',$category)
+            ->distinct()
+            ->get();
+        $res['category'] = $data;
+        return $res;
+    }
+
     public function urlquerypage($userId,$page=1,$page_num=5)
     {
 		if ($page_num >= 20) {
