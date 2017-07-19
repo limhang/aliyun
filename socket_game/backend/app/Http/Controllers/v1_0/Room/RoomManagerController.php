@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers\v1_0\Room;
 
-use GatewayClient\Gateway;
+use App\Lib\Gateway;
 use App\Http\Controllers\Controller;
 use App\Models\Users;
 use Illuminate\Http\Request;
@@ -27,12 +27,10 @@ class RoomManagerController extends Controller
     public function roomcreate(Request $request)
     {
 		echo "xxxx";
-		$roomId = $request->input('roomId','');
-		$userName = $request->input('userName','');
-		$client_id = $request->input('client_id');
+		$userName = $request->input('username','');
+		$client_id = $request->input('client_id','');
+
 		$uid = "test";
-		Cache::put('roomId', $roomId, 60);
-		Cache::put('userName',$userName,60);
 		Gateway::bindUid($client_id,$uid);
 		Gateway::sendToUid($uid,'hello');
 
